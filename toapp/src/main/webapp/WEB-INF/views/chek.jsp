@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	location.href = "loginForm";
-</script>
+check!!
 </body>
-</html> 
+</html>
