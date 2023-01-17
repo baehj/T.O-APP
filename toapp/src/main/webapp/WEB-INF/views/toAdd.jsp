@@ -29,7 +29,7 @@
 	  const newCell1 = newRow.insertCell(0);
 	  const newCell2 = newRow.insertCell(1);
 	  const newCell3 = newRow.insertCell(2);
-	  
+	   
 	  // Cell에 텍스트 추가
 	  newCell1.innerHTML = "<td class='to_add_list'><input type='text' name = 'p_plus' style='width:100px;'></td>";
 	  newCell2.innerHTML = "<td class='to_add_list'><input type='file' name = 'p_plus_file' ></td>";
