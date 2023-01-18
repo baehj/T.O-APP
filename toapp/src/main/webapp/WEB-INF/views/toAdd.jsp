@@ -54,7 +54,7 @@
 		$("#p_list2").val(list2);
 	}
 	*/
-	 
+	
 	/* 전송시 p_plus_file들 ajaxㄴ 전달 
 	$('#submit').on('click', function() {
 		var formData = new FormData();
