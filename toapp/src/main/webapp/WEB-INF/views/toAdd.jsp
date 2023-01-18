@@ -45,14 +45,30 @@
 		$("#p_list1").val(list1);
 	}
 	
-	/* 전송시 p_plus_file 배열로 전달 */
+	/* 전송시 p_plus_file 배열로 전달 
 	function getlist2(){
-		var list2 = new Array();
+		var list2 = new FormData();
 		$("input[name=p_plus_file]").each(function(index,item){
-			list2.push($(item).val());
+			list2.append($(index).val, $(item).val);
 		});
 		$("#p_list2").val(list2);
 	}
+	*/
+	
+	/* 전송시 p_plus_file들 ajaxㄴ 전달 
+	$('#submit').on('click', function() {
+		var formData = new FormData();
+		$.each(uploadfiles, function(idx, file) {
+			formData.append('file', file, file.name);
+		});
+		$.ajax({
+			url:'check', data:formData, type:'post', contentType:false,
+			processData:false, enctype:'multipart/form-data',
+			success: function(data) {
+				alert("success");
+			}
+		});
+	}); */ 
 	
 	/* to_add_list td의 X버튼 누르면 table에서 삭제 */
 	
@@ -61,44 +77,43 @@
 <body>
 
 <h2 class="title">인계 사항 작성</h2>
-<form>
-
+<form action="check" method="post" enctype="multipart/form-data">
 <table id="to_add">
 	<tr>
 		<td class="col-md-4">프로젝트코드</td>
 		<td class="chk_value" colspan="2">
-			<input type="text" name="p_code" required="required" autofocus="autofocus">
+			<input type="text" name="p_code"  autofocus="autofocus">
 		</td>
 	</tr>
 	<tr>
 		<td class="col-md-4">프로젝트명</td>
 		<td class="chk_value" colspan="2">
-			<input type="text" name="p_name" required="required" autofocus="autofocus">
+			<input type="text" name="p_name">
 		</td>
 	</tr>
 	<tr>
 		<td class="col-md-4">프로젝트 기간</td>
 		<td class="chk_value">
-			<input type="text" id="datepicker1" name="p_startDate" required="required">
+			<input type="text" id="datepicker1" name="p_startDate" >
 			~
-			<input type="text" id="datepicker2" name="p_endDate" required="required">
+			<input type="text" id="datepicker2" name="p_endDate" >
 		</td>
 	</tr>
 	<tr>
 		<td class="col-md-4" >서버정보</td>
-		<td class="chk_value" colspan="2"><input type="file" name="p_server" required="required"></td>
+		<td class="chk_value" colspan="2"><input type="file" name="p_server" ></td>
 	</tr>
 	<tr>
 		<td class="col-md-4">테이블명세서</td>
-		<td class="chk_value" colspan="2"><input type="file" name="p_erd" required="required"></td>
+		<td class="chk_value" colspan="2"><input type="file" name="p_erd" ></td>
 	</tr>
 	<tr>
 		<td class="col-md-4">화면설계서</td>
-		<td class="chk_value" colspan="2"><input type="file" name="p_wireframe" required="required"></td>
+		<td class="chk_value" colspan="2"><input type="file" name="p_wireframe" ></td>
 	</tr>
 	<tr>
 		<td class="col-md-4">비고</td>
-		<td class="chk_value" colspan="2"><input type="text" name="p_note" required="required"></td>
+		<td class="chk_value" colspan="2"><input type="text" name="p_note" ></td>
 	</tr>
 	<tr>
 		<td colspan="3">
@@ -109,7 +124,7 @@
 	</tr>
 	<tr>
 		<td class="container_submit" colspan="2" align="center">
-			<button type="submit" value="확인" class="lbtn">확인</button>
+			<input type="submit" id="submit" value="확인" class="lbtn" onclick="getlist1(); getlist2();">
 		</td>
 	</tr>
 </table>
