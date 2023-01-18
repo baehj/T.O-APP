@@ -75,7 +75,7 @@
 </script>
 </head>
 <body>
-
+ 
 <h2 class="title">인계 사항 작성</h2>
 <form action="check" method="post" enctype="multipart/form-data">
 <table id="to_add">
