@@ -33,7 +33,7 @@
 	  // Cell에 텍스트 추가
 	  newCell1.innerHTML = "<td class='to_add_list'><input type='text' name = 'p_plus' style='width:100px;'></td>";
 	  newCell2.innerHTML = "<td class='to_add_list'><input type='file' name = 'p_plus_file' ></td>";
-	  newCell3.innerHTML = "<td><img src='/resources/image/delete.png' style='width:20px;'></td>";
+	  newCell3.innerHTML = "<td><img src='resources/image/delete.png' style='width:20px;'></td>";
 	}
 	
 	/* 전송시 p_plus 배열로 전달 */
@@ -45,30 +45,8 @@
 		$("#p_list1").val(list1);
 	}
 	
-	/* 전송시 p_plus_file 배열로 전달 
-	function getlist2(){
-		var list2 = new FormData();
-		$("input[name=p_plus_file]").each(function(index,item){
-			list2.append($(index).val, $(item).val);
-		});
-		$("#p_list2").val(list2);
-	}
-	*/
+	/* 전송시 p_plus input칸에 ,입력 금지 */ 
 	
-	/* 전송시 p_plus_file들 ajaxㄴ 전달 
-	$('#submit').on('click', function() {
-		var formData = new FormData();
-		$.each(uploadfiles, function(idx, file) {
-			formData.append('file', file, file.name);
-		});
-		$.ajax({
-			url:'check', data:formData, type:'post', contentType:false,
-			processData:false, enctype:'multipart/form-data',
-			success: function(data) {
-				alert("success");
-			}
-		});
-	}); */ 
 	
 	/* to_add_list td의 X버튼 누르면 table에서 삭제 */
 	

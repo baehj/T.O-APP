@@ -2,14 +2,7 @@ package com.ch.toapp.controller;
 
 
 
-import java.io.File;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,14 +12,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
 
 import com.ch.toapp.model.Member;
 import com.ch.toapp.service.MemberService;
@@ -79,13 +68,35 @@ public class HomeController {
 		String result = "";
 		Member member2 = ms.select(email);
 		
+		System.out.println("email : "+email);
+		System.out.println("pw : "+pw);
+		
+		
+		/*
 		if (member2 == null) {
+			result = "n"; // 없는 아이디
+		} else if (pw.equals(member2.getPw()) && member2.getType_no() == 1 ) {
+			result = "1";
+		} else if (pw.equals(member2.getPw()) && member2.getType_no() == 2 ) {
+			result = "2";
+		} else if (pw.equals(member2.getPw()) && member2.getType_no() == 3 ) {
+			result = "2";
+		} else if (pw.equals(member2.getPw()) && member2.getType_no() == 4 ) {
+			result = "2";
+		} else {
+			result = "n";
+		}
+		*/
+		
+		if (member2 == null) {
+			System.out.println("없는아이디");
 			result = "n"; // 없는 아이디
 		} else if (pw.equals(member2.getPw())) {
 			result = "y";
 		} else {
 			result = "n";
 		}
+		
 		return result;
 	}
 	

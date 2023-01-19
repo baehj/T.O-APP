@@ -15,7 +15,7 @@ public class MemberDaoImpl implements MemberDao{
 	
 	@Override
 	public Member select(String email) {
-		return sst.selectOne("memberns.select", email); // 로그인할 때 사용하는 로직
+		return sst.selectOne("memberns.select", email); 
 	}
 	
 }

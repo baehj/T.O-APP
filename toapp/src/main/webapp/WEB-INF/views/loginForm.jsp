@@ -7,12 +7,33 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-td, th {
-    padding: 14px 0px;
-}
+	td, th {
+	    padding: 14px 0px;
+	}
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript">
+	
+	/*
+	function login() {
+		var chk = '';
+		$.ajaxSetup({async:false});
+		$.post('login', {email: frm.email.value, pw: frm.pw.value }, function(data) {
+			chk = data;
+		});
+		
+		if(chk=='1'){ 
+			alert("승인권자의 승인이 필요합니다.");
+			return false;
+		} else if(chk=='2'){
+			return true;
+		} else {
+			$('#chk').html("로그인 실패");
+			return false;
+		}
+	}*/
+	
+	
 	function login() {
 		var chk = '';
 		$.ajaxSetup({async:false});
@@ -27,6 +48,7 @@ td, th {
 			return false;
 		}
 	}
+	
 </script>
 </head>
 <body>
